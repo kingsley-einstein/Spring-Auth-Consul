@@ -3,6 +3,7 @@ package com.spring.consul.auth;
 import java.io.IOException;
 import java.io.Serializable;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,8 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint, Serializable
   private static final long serialVersionUID = 1L;
 
   @Override
-  public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException {
-    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+  public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+    System.out.println(request.getUserPrincipal().getName());
+    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, exception.getMessage());
   }
 }

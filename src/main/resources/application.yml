@@ -1,3 +1,5 @@
+server:
+  port: 8956
 spring:
   application:
     name: auth-service
@@ -5,3 +7,5 @@ spring:
     consul:
       host: localhost
       port: 8500
+      config:
+        enabled: true

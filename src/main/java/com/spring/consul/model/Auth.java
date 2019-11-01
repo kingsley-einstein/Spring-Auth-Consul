@@ -4,19 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import com.spring.consul.hooks.AuthListener;
-
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "users")
-@EntityListeners(AuthListener.class)
 public class Auth implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
